@@ -140,28 +140,188 @@ CREATE TABLE cast (
 
 UPDATE studios
 SET name = "Warner Bros."
-WHERE  id= 1
+WHERE  id= 1;
+
+
+
+
 
 UPDATE movies
 SET studio_id = 1
 SET title = "Batman Begins"
 SET year_released = "2005"
 SET MPAA_rating = "PG-13"
-WHERE  id= 1
+WHERE  id= 1;
 
 UPDATE movies
 SET studio_id = 1
 SET title = "The Dark Knight"
 SET year_released = "2008"
 SET MPAA_rating = "PG-13"
-WHERE  id= 2
+WHERE  id= 2;
 
 UPDATE movies
 SET studio_id = 1
 SET title = "The Dark Knight Rises"
 SET year_released = "2012"
 SET MPAA_rating = "PG-13"
-WHERE  id= 3
+WHERE  id= 3;
+
+
+
+
+
+UPDATE actors
+SET name = "Christian Bale"
+WHERE  id= 1;
+
+UPDATE actors
+SET name = "Michael Caine"
+WHERE  id= 2;
+
+UPDATE actors
+SET name = "Liam Neeson"
+WHERE  id= 3;
+
+UPDATE actors
+SET name = "Katie Holmes"
+WHERE  id= 4;
+
+UPDATE actors
+SET name = "Gary Oldman"
+WHERE  id= 5;
+
+UPDATE actors
+SET name = "Heath Ledger"
+WHERE  id= 6;
+
+UPDATE actors
+SET name = "Aarton Eckhart"
+WHERE  id= 7;
+
+UPDATE actors
+SET name = "Maggie Gyllenhaal"
+WHERE  id= 8;
+
+UPDATE actors
+SET name = "Tom Hardy"
+WHERE  id= 9;
+
+UPDATE actors
+SET name = "Joseph Gordon-Levitt"
+WHERE  id= 10;
+
+UPDATE actors
+SET name = "Anne Hathaway"
+WHERE  id= 11;
+
+
+-- Batman Begins          Christian Bale        Bruce Wayne
+-- Batman Begins          Michael Caine         Alfred
+-- Batman Begins          Liam Neeson           Ra's Al Ghul
+-- Batman Begins          Katie Holmes          Rachel Dawes
+-- Batman Begins          Gary Oldman           Commissioner Gordon
+-- The Dark Knight        Christian Bale        Bruce Wayne
+-- The Dark Knight        Heath Ledger          Joker
+-- The Dark Knight        Aaron Eckhart         Harvey Dent
+-- The Dark Knight        Michael Caine         Alfred
+-- The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
+-- The Dark Knight Rises  Christian Bale        Bruce Wayne
+-- The Dark Knight Rises  Gary Oldman           Commissioner Gordon
+-- The Dark Knight Rises  Tom Hardy             Bane
+-- The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
+-- The Dark Knight Rises  Anne Hathaway         Selina Kyle
+
+
+UPDATE cast
+SET movie_id = 1
+SET actor_id= 1
+SET character_name = "Bruce Wayne"
+WHERE  id= 1;
+
+UPDATE cast
+SET movie_id = 1
+SET actor_id= 2
+SET character_name = "Alfred"
+WHERE  id= 2;
+
+UPDATE cast
+SET movie_id = 1
+SET actor_id= 3
+SET character_name = "Ra's Al Ghul"
+WHERE  id= 3;
+
+UPDATE cast
+SET movie_id = 1
+SET actor_id= 4
+SET character_name = "Rachel Dawes"
+WHERE  id= 4;
+
+UPDATE cast
+SET movie_id = 1
+SET actor_id= 5
+SET character_name = "Commissioner Gordon"
+WHERE  id= 5;
+
+UPDATE cast
+SET movie_id = 2
+SET actor_id= 1
+SET character_name = "Bruce Wayne"
+WHERE  id= 6;
+
+UPDATE cast
+SET movie_id = 2
+SET actor_id= 6
+SET character_name = "Joker"
+WHERE  id= 7;
+
+UPDATE cast
+SET movie_id = 2
+SET actor_id= 7
+SET character_name = "Harvey Dent"
+WHERE  id= 8;
+
+UPDATE cast
+SET movie_id = 2
+SET actor_id= 2
+SET character_name = "Alfred"
+WHERE  id= 9;
+
+UPDATE cast
+SET movie_id = 2
+SET actor_id= 8
+SET character_name = "Rachel Dawes"
+WHERE  id= 10;
+
+UPDATE cast
+SET movie_id = 3
+SET actor_id= 1
+SET character_name = "Bruce Wayne"
+WHERE  id= 11;
+
+UPDATE cast
+SET movie_id = 3
+SET actor_id= 5
+SET character_name = "Commissioner Gordon"
+WHERE  id= 12;
+
+UPDATE cast
+SET movie_id = 3
+SET actor_id= 9
+SET character_name = "Bane"
+WHERE  id= 13;
+
+UPDATE cast
+SET movie_id = 3
+SET actor_id= 10
+SET character_name = "John Blake"
+WHERE  id= 14;
+
+UPDATE cast
+SET movie_id = 3
+SET actor_id= 11
+SET character_name = "Selina Kyle"
+WHERE  id= 15;
 
 -- Prints a header for the movies output
 .print "Movies"
