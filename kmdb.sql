@@ -116,10 +116,10 @@ CREATE TABLE studios (
 
 CREATE TABLE movies (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  studio_id INTEGER,
   title TEXT,
   year_released TEXT,
   MPAA_rating TEXT,
+  studio_id INTEGER,
 );
 
 CREATE TABLE actors (
@@ -138,190 +138,58 @@ CREATE TABLE cast (
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
 
-UPDATE studios
-SET name = "Warner Bros."
-WHERE  id= 1;
+INSERT INTO studios 
+(studios)
+VALUES
+("Warner Bros." );
 
 
 
-
-
-UPDATE movies
-SET studio_id = 1
-SET title = "Batman Begins"
-SET year_released = "2005"
-SET MPAA_rating = "PG-13"
-WHERE  id= 1;
-
-UPDATE movies
-SET studio_id = 1
-SET title = "The Dark Knight"
-SET year_released = "2008"
-SET MPAA_rating = "PG-13"
-WHERE  id= 2;
-
-UPDATE movies
-SET studio_id = 1
-SET title = "The Dark Knight Rises"
-SET year_released = "2012"
-SET MPAA_rating = "PG-13"
-WHERE  id= 3;
+INSERT INTO movies 
+(title, year_released, MPAA_ratings, studio_id)
+VALUES
+(1, "2005", "PG-13)", "Batman Begins"),
+(1, "2008", "PG-13)", "The Dark Knight"),
+(1, "2012", "PG-13)", "The Dark Knight Rises"):
 
 
 
+INSERT INTO actors 
+(name)
+VALUES
+("Christian Bale"),
+("Michael Caine"),
+("Liam Neeson"),
+("Katie Holmes"),
+("Gary Oldman"),
+("Heath Ledger"),
+("Aarton Eckhart"),
+("Maggie Gyllenhaal"),
+("Tom Hardy"),
+("Joseph Gordon-Levitt"),
+("Anne Hathaway");
 
 
-UPDATE actors
-SET name = "Christian Bale"
-WHERE  id= 1;
 
-UPDATE actors
-SET name = "Michael Caine"
-WHERE  id= 2;
+INSERT INTO cast 
+(movie_id, actor_id, character_name)
+VALUES
+(1,1,"Bruce Wayne"),
+(1,2,"Alfred"),
+(1,3,"Ra's Al Ghul"),
+(1,4,"Rachel Dawes"),
+(1,5,"Comissioner Gordon"),
+(2,1,"Bruce Wayne")
+(2,6,"Joker")
+(2,7,"Harvey Dent")
+(2,2,"Alfred")
+(2,8,"Rachel Dawes")
+(3,1,"Bruce Wayne")
+(3,5,"Comissioner Gordon")
+(3,9,"Bane")
+(3,10,"John Blake")
+(3,11,"Selina Kyle")
 
-UPDATE actors
-SET name = "Liam Neeson"
-WHERE  id= 3;
-
-UPDATE actors
-SET name = "Katie Holmes"
-WHERE  id= 4;
-
-UPDATE actors
-SET name = "Gary Oldman"
-WHERE  id= 5;
-
-UPDATE actors
-SET name = "Heath Ledger"
-WHERE  id= 6;
-
-UPDATE actors
-SET name = "Aarton Eckhart"
-WHERE  id= 7;
-
-UPDATE actors
-SET name = "Maggie Gyllenhaal"
-WHERE  id= 8;
-
-UPDATE actors
-SET name = "Tom Hardy"
-WHERE  id= 9;
-
-UPDATE actors
-SET name = "Joseph Gordon-Levitt"
-WHERE  id= 10;
-
-UPDATE actors
-SET name = "Anne Hathaway"
-WHERE  id= 11;
-
-
--- Batman Begins          Christian Bale        Bruce Wayne
--- Batman Begins          Michael Caine         Alfred
--- Batman Begins          Liam Neeson           Ra's Al Ghul
--- Batman Begins          Katie Holmes          Rachel Dawes
--- Batman Begins          Gary Oldman           Commissioner Gordon
--- The Dark Knight        Christian Bale        Bruce Wayne
--- The Dark Knight        Heath Ledger          Joker
--- The Dark Knight        Aaron Eckhart         Harvey Dent
--- The Dark Knight        Michael Caine         Alfred
--- The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
--- The Dark Knight Rises  Christian Bale        Bruce Wayne
--- The Dark Knight Rises  Gary Oldman           Commissioner Gordon
--- The Dark Knight Rises  Tom Hardy             Bane
--- The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
--- The Dark Knight Rises  Anne Hathaway         Selina Kyle
-
-
-UPDATE cast
-SET movie_id = 1
-SET actor_id= 1
-SET character_name = "Bruce Wayne"
-WHERE  id= 1;
-
-UPDATE cast
-SET movie_id = 1
-SET actor_id= 2
-SET character_name = "Alfred"
-WHERE  id= 2;
-
-UPDATE cast
-SET movie_id = 1
-SET actor_id= 3
-SET character_name = "Ra's Al Ghul"
-WHERE  id= 3;
-
-UPDATE cast
-SET movie_id = 1
-SET actor_id= 4
-SET character_name = "Rachel Dawes"
-WHERE  id= 4;
-
-UPDATE cast
-SET movie_id = 1
-SET actor_id= 5
-SET character_name = "Commissioner Gordon"
-WHERE  id= 5;
-
-UPDATE cast
-SET movie_id = 2
-SET actor_id= 1
-SET character_name = "Bruce Wayne"
-WHERE  id= 6;
-
-UPDATE cast
-SET movie_id = 2
-SET actor_id= 6
-SET character_name = "Joker"
-WHERE  id= 7;
-
-UPDATE cast
-SET movie_id = 2
-SET actor_id= 7
-SET character_name = "Harvey Dent"
-WHERE  id= 8;
-
-UPDATE cast
-SET movie_id = 2
-SET actor_id= 2
-SET character_name = "Alfred"
-WHERE  id= 9;
-
-UPDATE cast
-SET movie_id = 2
-SET actor_id= 8
-SET character_name = "Rachel Dawes"
-WHERE  id= 10;
-
-UPDATE cast
-SET movie_id = 3
-SET actor_id= 1
-SET character_name = "Bruce Wayne"
-WHERE  id= 11;
-
-UPDATE cast
-SET movie_id = 3
-SET actor_id= 5
-SET character_name = "Commissioner Gordon"
-WHERE  id= 12;
-
-UPDATE cast
-SET movie_id = 3
-SET actor_id= 9
-SET character_name = "Bane"
-WHERE  id= 13;
-
-UPDATE cast
-SET movie_id = 3
-SET actor_id= 10
-SET character_name = "John Blake"
-WHERE  id= 14;
-
-UPDATE cast
-SET movie_id = 3
-SET actor_id= 11
-SET character_name = "Selina Kyle"
-WHERE  id= 15;
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -330,6 +198,10 @@ WHERE  id= 15;
 
 -- The SQL statement for the movies output
 -- TODO!
+SELECT movies.title, movies.year_released, movies.MPAA_ratings, movies.studio_id 
+FROM movies
+INNER JOIN movies
+ON studios.id = movies.studio_id;
 
 -- Prints a header for the cast output
 .print ""
@@ -337,6 +209,16 @@ WHERE  id= 15;
 .print "========"
 .print ""
 
+SELECT movies.title, movies.year_released, movies.MPAA_ratings, movies.studio_id 
+FROM movies
+INNER JOIN movies
+ON studios.id = movies.studio_id;
 
 -- The SQL statement for the cast output
 -- TODO!
+SELECT movies.title, actors.name, cast.character_name 
+FROM movies
+INNER JOIN cast 
+ON cast.movie_id = movies.id
+INNER JOIN actors
+ON cast.character_id = actors.id;
